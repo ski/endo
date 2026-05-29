@@ -34,20 +34,21 @@ If you are working inside this repository instead, see
 
 ## The tutorials
 
-1. **[Alice's Car Key: Capabilities, Attenuated](01-car-key.md)** — _draft
-   pending._
+1. **[Alice's Car Key: Capabilities, Attenuated](01-car-key.md)**
    Define a `Car` object with `unlock` and `start`, wrap it in a "valet key"
    facet that only unlocks, hand the key to a confined guest, and watch the
    guest try (and fail) to drive away.
    By the end you understand pet names, formulas, `Far`, `harden`, eventual
    send, and the principle of attenuation.
+   → [Live on suhail.ski](https://suhail.ski/posts/alices-car-key-capabilities-attenuated)
 
-2. **[Mailing Bob the Start Fob](02-mailing-keys.md)** — _draft pending._
+2. **[Mailing Bob the Start Fob](02-mailing-keys.md)**
    Promote Bob from "a guest on Alice's daemon" to "his own daemon on his
    own machine," issue an invitation, and watch Alice deliver the `start`
    capability across the network.
    By the end you understand invitations, the synced pet store, CapTP, and
    the fact that revocation, not delegation, is the lever you actually hold.
+   → [Live on suhail.ski](https://suhail.ski/posts/mailing-bob-the-start-fob-capabilities-across-the-wire)
 
 Further tutorials will cover delegation and per-grantee revocation, the
 compartment and lockdown layer underneath, and assembling everything into a
