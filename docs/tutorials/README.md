@@ -62,9 +62,16 @@ If you are working inside this repository instead, see
    code handles both outcomes. Covers persistent settled requests, pipelining
    off a promise before the host acts, and following the inbox in real time.
 
-Further tutorials will cover confined plugins that declare their own needs
-and receive exactly what they ask for, the compartment and lockdown layer
-underneath, and assembling everything into a small but real plugin system.
+5. **[The Plugin That Can't Escape: Hardened Compartments](05-confined-plugins.md)**
+   Run untrusted third-party code in a Hardened JavaScript Compartment. Watch
+   three escape attempts — `fetch`, `process.env`, prototype mutation — each
+   fail cleanly. Then see the plugin do its legitimate work through an
+   attenuated capability. Attenuation and confinement compose independently.
+
+Further tutorials will assemble these pieces into a small but real plugin
+system: a host that manages capabilities, accepts plugins from untrusted
+sources, routes requests through an approval workflow, and revokes access
+when they misbehave.
 
 ## Conventions
 
