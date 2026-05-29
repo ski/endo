@@ -179,17 +179,23 @@ That is what Zoe adds — an escrow protocol that holds both sides of an exchang
 
 ## The map: ERTP ↔ tutorials 1–3
 
-| ERTP | Tutorial concept |
-|---|---|
-| Mint | The grantor — exclusive authority to issue |
-| Issuer | Attenuated mint — public interface, no issuance power |
-| Brand | Asset identity — unforgeable, travels with payments |
-| Payment | Per-grantee forwarder — one use, transferable |
-| Purse | Bob's namespace — persistent balance |
-| `mint.mintPayment` | `E(garage).provision('bob', 'full')` |
-| `purse.deposit` | `endo adopt` |
-| `purse.withdraw` | Extract for transfer — no tutorial 1-3 equivalent |
-| `issuer.burn` | `E(garage).revoke('bob')` |
+**Mint** — The grantor from tutorial 3: exclusive authority to issue. If you hold the mint, you can create new supply. If you don't, you can't.
+
+**Issuer** — The attenuated mint: public interface, no issuance power. Equivalent to the valet key from tutorial 1 — a subset of the mint's authority, safe to share.
+
+**Brand** — Asset identity: unforgeable, travels with every payment. A stable object reference that lets anyone check "is this payment for CarAccess?"
+
+**Payment** — The per-grantee forwarder from tutorial 3, but now transferable and one-use. Once deposited it is consumed.
+
+**Purse** — Bob's namespace from tutorial 1, but balance-aware. Holds persistent supply across multiple deposits and withdrawals.
+
+**`mint.mintPayment`** — equivalent to `E(garage).provision('bob', 'full')`.
+
+**`purse.deposit`** — equivalent to `endo adopt`.
+
+**`purse.withdraw`** — no tutorial 1–3 equivalent. This is the new capability: extracting an asset for transfer without Alice's involvement.
+
+**`issuer.burn`** — equivalent to `E(garage).revoke('bob')`. Destroys the asset permanently rather than just flipping a flag.
 
 The concepts are the same. What ERTP adds is: a standard interface anyone can audit, financial-grade supply control, and the transfer semantics that delegation lacked.
 

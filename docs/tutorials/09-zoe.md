@@ -221,17 +221,23 @@ This is the gap from tutorial 7 closed. In the tutorial-6 garage, "payment and a
 
 ## The map: Zoe ↔ tutorials 6 and 8
 
-| Zoe | Tutorial concept |
-|---|---|
-| `E(zoe).install(bundle)` | `endo make garage.js` |
-| `E(zoe).startInstance(installation, ...)` | Instantiating the garage with a specific car |
-| `creatorFacet` | The garage's private interface (Alice's `audit()`, `revoke()`) |
-| `publicFacet` | The garage's public interface (anyone can call `makeBuyerInvitation`) |
-| Invitation | A single-use capability to participate in one specific offer |
-| Proposal (`give`, `want`) | The terms of an offer — Bob's `request` from tutorial 4, but structured |
-| `atomicTransfer` | Tutorial 3's `revocable forwarder` — but now it swaps two assets at once |
-| `seat.exit()` | Tutorial 3's `revoker.revoke()` — closes out the offer |
-| Offer safety | The guarantee the garage could not provide — neither party can be cheated |
+**`E(zoe).install(bundle)`** — equivalent to `endo make garage.js`: register contract code so the chain can instantiate it.
+
+**`E(zoe).startInstance(installation, ...)`** — instantiating the garage with a specific car and specific issuers. The `issuerKeywordRecord` is the contract's dependency injection.
+
+**`creatorFacet`** — the garage's private interface: Alice's `audit()`, `revoke()`, and `makeSellerInvitation()`. Returned only to the deployer.
+
+**`publicFacet`** — the garage's public interface: anyone can call `makeBuyerInvitation()`. Available to anyone who knows the instance.
+
+**Invitation** — a single-use capability to participate in one specific offer. Like the forwarder from tutorial 3, but for entering a contract rather than calling a method.
+
+**Proposal (`give`, `want`)** — the structured terms of an offer. Equivalent to Bob's `request` from tutorial 4, but machine-verifiable by Zoe rather than human-approved.
+
+**`atomicTransfer`** — the tutorial-3 revocable forwarder elevated to swapping two assets simultaneously. Neither asset moves unless both move.
+
+**`seat.exit()`** — equivalent to `revoker.revoke()` from tutorial 3: closes out the offer and releases escrowed assets as payouts.
+
+**Offer safety** — the guarantee the garage could not provide: neither party can receive nothing while the other walks away with both assets.
 
 The code is structurally identical to what you have been writing. The difference is the guarantee: instead of "Alice pinky-swears she will provision Bob's fob if he pays," the contract provides a mathematical guarantee enforced by Zoe.
 
