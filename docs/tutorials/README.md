@@ -89,9 +89,14 @@ If you are working inside this repository instead, see
    revoked payment. Every ERTP primitive maps directly to a concept from
    tutorials 1–3 — supply control, attenuation, and revocation, standardised.
 
-Further tutorials will build out the Agoric side: Zoe smart contracts,
-on-chain marketplaces, the wallet petname system, and a Lit + Web Components
-PWA mobile wallet.
+9. **[The Garage as a Smart Contract: Zoe](09-zoe.md)**
+   Port the garage to a Zoe smart contract on a local Agoric chain. Alice
+   lists a CarAccess fob for 50 IST. Bob makes a matching offer. Zoe holds
+   both sides in escrow and releases them atomically — neither party can
+   cheat the other. The offer safety guarantee is structural, not legal.
+
+Further tutorials will build the on-chain marketplace, the wallet petname
+system, and a Lit + Web Components PWA mobile wallet.
 
 ## Conventions
 
