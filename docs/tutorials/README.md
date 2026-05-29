@@ -68,10 +68,12 @@ If you are working inside this repository instead, see
    fail cleanly. Then see the plugin do its legitimate work through an
    attenuated capability. Attenuation and confinement compose independently.
 
-Further tutorials will assemble these pieces into a small but real plugin
-system: a host that manages capabilities, accepts plugins from untrusted
-sources, routes requests through an approval workflow, and revokes access
-when they misbehave.
+6. **[The Smart Garage: A Capability Broker](06-capability-broker.md)**
+   Assemble tutorials 1–5 into a coherent system: a garage broker that
+   provisions per-grantee forwarders to third-party plugins, audits active
+   grants, revokes any plugin independently, and emergency-stops everything
+   at once. Two plugins — one well-behaved, one adversarial — each get the
+   access they were given and nothing more.
 
 ## Conventions
 
