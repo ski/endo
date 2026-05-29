@@ -56,9 +56,15 @@ If you are working inside this repository instead, see
    By the end you understand per-grantee wrappers, the forwarder/revoker
    separation, and why capability policy is structural rather than declarative.
 
-Further tutorials will cover the Endo mailbox and form system (requesting
-capabilities on demand), the compartment and lockdown layer underneath, and
-assembling everything into a small but real plugin system.
+4. **[Bob Makes a Request: The Endo Mailbox and Forms](04-mailbox-and-requests.md)**
+   Bob asks Alice for a capability rather than waiting for her to push one.
+   Alice sees the request in her inbox, approves or rejects it, and Bob's
+   code handles both outcomes. Covers persistent settled requests, pipelining
+   off a promise before the host acts, and following the inbox in real time.
+
+Further tutorials will cover confined plugins that declare their own needs
+and receive exactly what they ask for, the compartment and lockdown layer
+underneath, and assembling everything into a small but real plugin system.
 
 ## Conventions
 
