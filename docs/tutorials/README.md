@@ -75,6 +75,12 @@ If you are working inside this repository instead, see
    at once. Two plugins — one well-behaved, one adversarial — each get the
    access they were given and nothing more.
 
+7. **[Endo on Mobile: Capabilities Across the Wire, Offline](07-mobile-client.md)**
+   Connect a React Native app to a remote Endo daemon via CapTP over WebSocket.
+   SES runs on Hermes and JavaScriptCore. The gateway client is the same code
+   as the desktop. The synced pet store gives you an offline-capable local
+   replica of the capability namespace with automatic revocation on reconnect.
+
 ## Conventions
 
 Every tutorial follows the same shape so you always know where you are.
