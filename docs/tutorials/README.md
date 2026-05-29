@@ -75,11 +75,16 @@ If you are working inside this repository instead, see
    at once. Two plugins — one well-behaved, one adversarial — each get the
    access they were given and nothing more.
 
-7. **[Endo on Mobile: Capabilities Across the Wire, Offline](07-mobile-client.md)**
-   Connect a React Native app to a remote Endo daemon via CapTP over WebSocket.
-   SES runs on Hermes and JavaScriptCore. The gateway client is the same code
-   as the desktop. The synced pet store gives you an offline-capable local
-   replica of the capability namespace with automatic revocation on reconnect.
+7. **[What the Garage Is Missing: Toward a Blockchain Capability Marketplace](07-toward-agoric.md)**
+   A bridge chapter. Five things the garage from tutorial 6 cannot do: trust is
+   personal not contractual, payment and access are not atomic, there is no
+   marketplace, the fob cannot be traded, revocation is Alice's word not the
+   chain's. Each gap maps to a specific part of Agoric's stack. Tutorials 8
+   through 12 answer the questions this one poses.
+
+Further tutorials will build out the Agoric side: ERTP financial primitives,
+Zoe smart contracts, on-chain marketplaces, the wallet petname system, and
+a mobile wallet that holds on-chain capabilities offline.
 
 ## Conventions
 
