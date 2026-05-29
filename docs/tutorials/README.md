@@ -82,9 +82,16 @@ If you are working inside this repository instead, see
    chain's. Each gap maps to a specific part of Agoric's stack. Tutorials 8
    through 12 answer the questions this one poses.
 
-Further tutorials will build out the Agoric side: ERTP financial primitives,
-Zoe smart contracts, on-chain marketplaces, the wallet petname system, and
-a mobile wallet that holds on-chain capabilities offline.
+8. **[The Car as a Digital Asset: ERTP](08-ertp.md)**
+   Turn the car's access right into a tradeable asset using Agoric's Electronic
+   Rights Transfer Protocol. Mint a non-fungible payment, deposit it into a
+   purse, transfer it to Charlie without Alice's involvement, and burn a
+   revoked payment. Every ERTP primitive maps directly to a concept from
+   tutorials 1–3 — supply control, attenuation, and revocation, standardised.
+
+Further tutorials will build out the Agoric side: Zoe smart contracts,
+on-chain marketplaces, the wallet petname system, and a Lit + Web Components
+PWA mobile wallet.
 
 ## Conventions
 
