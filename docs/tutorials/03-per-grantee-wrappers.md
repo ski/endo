@@ -8,7 +8,7 @@ category: Guides
 
 In [tutorial 2](https://suhail.ski/posts/mailing-bob-the-start-fob-capabilities-across-the-wire) Alice revoked the start fob by removing it from the synced store. That killed every downstream copy at once — a blunt instrument. What if she wants to cut Bob's access without affecting Charlie's?
 
-The answer is that she should never have handed Bob and Charlie the *same* object. She should have minted a separate wrapper for each of them — same underlying capability, different forwarder, independent kill switch. This tutorial builds that pattern. It runs entirely in a single daemon; no two-daemon setup required. The concept is simple enough that the network would only be noise.
+The answer is that she should never have handed Bob and Charlie the same object. She should have minted a separate wrapper for each of them — same underlying capability, different forwarder, independent kill switch. This tutorial builds that pattern. It runs entirely in a single daemon; no two-daemon setup required. The concept is simple enough that the network would only be noise.
 
 ## What you'll build
 
@@ -25,7 +25,8 @@ A `makeRevocableForwarder` factory that wraps any capability with an on/off swit
 Inside `endo-car-tutorial/`, create `revocable.js`:
 
 ```js
-import { Far } from '@endo/far';
+import harden from '@endo/harden';
+import { E, Far } from '@endo/far';
 
 export const make = () =>
   Far('RevocableFactory', {
@@ -52,6 +53,12 @@ export const make = () =>
       return harden({ forwarder, revoker });
     },
   });
+```
+
+Install the `@endo/harden` package alongside `@endo/far` in your project:
+
+```sh
+npm install @endo/harden
 ```
 
 A few things worth noting before you move on.
@@ -207,11 +214,11 @@ endo eval 'E(c).start()' c:my-car
 
 Bob's access is gone. Charlie's is not. The Car is untouched. Alice revoked one grantee without touching anyone else, because each grantee had their own object with their own internal state.
 
-**Sidebar — composability.** You can stack these layers freely. An attenuated wrapper (tutorial 1 — exposes only `unlock`) around a revocable forwarder gives you attenuation and revocation independently. A revocable forwarder around an attenuated wrapper gives the same. A factory that mints revocable attenuated wrappers gives you both for each grantee. The layers compose because they are all just objects — `Far` references whose methods close over whatever state they need. There is no framework magic, no central registry, no ACL table. The policy *is* the object graph.
+**Sidebar — composability.** You can stack these layers freely. An attenuated wrapper (tutorial 1 — exposes only `unlock`) around a revocable forwarder gives you attenuation and revocation independently. A revocable forwarder around an attenuated wrapper gives the same. A factory that mints revocable attenuated wrappers gives you both for each grantee. The layers compose because they are all just objects — `Far` references whose methods close over whatever state they need. There is no framework magic, no central registry, no ACL table. The policy is the object graph.
 
 ## 8. What the factory itself is
 
-`revocable-factory` is itself a capability. Right now only Alice has it. If she granted it to Bob, Bob could mint his own forwarders — wrapping anything *he* holds, issuing sub-capabilities to his own guests. If Alice wanted to limit that, she could attenuate the factory before sending it: wrap it in a new Far object that only allows wrapping a specific set of targets, or that limits the number of forwarders that can be minted. The pattern recurses without limit.
+`revocable-factory` is itself a capability. Right now only Alice has it. If she granted it to Bob, Bob could mint his own forwarders — wrapping anything he holds, issuing sub-capabilities to his own guests. If Alice wanted to limit that, she could attenuate the factory before sending it: wrap it in a new Far object that only allows wrapping a specific set of targets, or that limits the number of forwarders that can be minted. The pattern recurses without limit.
 
 This is one of the structural differences between capability systems and traditional access control: policy is expressed by what you hand out and how you wrap it, not by what you write in a central database. Every wrapper is a policy decision. Every attenuation is a policy decision. They compose.
 
@@ -231,4 +238,4 @@ endo purge
 
 ## What's next
 
-In tutorial 4, Bob doesn't just receive capabilities — he makes a *request*. Alice can approve or reject it, and the result is a capability Bob can use. This is the Endo mailbox and form system: the conversation layer that sits above the object layer, useful when the capability Bob needs doesn't exist yet and has to be provisioned on demand.
+In tutorial 4, Bob doesn't just receive capabilities — he makes a request. Alice can approve or reject it, and the result is a capability Bob can use. This is the Endo mailbox and form system: the conversation layer that sits above the object layer, useful when the capability Bob needs doesn't exist yet and has to be provisioned on demand.
