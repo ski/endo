@@ -50,9 +50,15 @@ If you are working inside this repository instead, see
    the fact that revocation, not delegation, is the lever you actually hold.
    → [Live on suhail.ski](https://suhail.ski/posts/mailing-bob-the-start-fob-capabilities-across-the-wire)
 
-Further tutorials will cover delegation and per-grantee revocation, the
-compartment and lockdown layer underneath, and assembling everything into a
-small but real plugin system.
+3. **[One Key Per Valet: Per-Grantee Wrappers and Independent Revocation](03-per-grantee-wrappers.md)**
+   Build a `makeRevocableForwarder` factory. Mint one wrapper per grantee.
+   Revoke Bob's without touching Charlie's. The Car keeps running throughout.
+   By the end you understand per-grantee wrappers, the forwarder/revoker
+   separation, and why capability policy is structural rather than declarative.
+
+Further tutorials will cover the Endo mailbox and form system (requesting
+capabilities on demand), the compartment and lockdown layer underneath, and
+assembling everything into a small but real plugin system.
 
 ## Conventions
 
