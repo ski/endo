@@ -95,8 +95,13 @@ If you are working inside this repository instead, see
    both sides in escrow and releases them atomically — neither party can
    cheat the other. The offer safety guarantee is structural, not legal.
 
-Further tutorials will build the on-chain marketplace, the wallet petname
-system, and a Lit + Web Components PWA mobile wallet.
+10. **[The Listing Board: An On-Chain Capability Marketplace](10-marketplace.md)**
+    Multiple sellers post CarAccess listings at different prices. Buyers browse
+    the board, pick a listing, and buy atomically through Zoe. No discovery gap,
+    no central operator, no trust required. Closes tutorial-7 gap 3.
+
+Further tutorials will cover the Agoric wallet petname system and a Lit +
+Web Components PWA mobile wallet.
 
 ## Conventions
 
