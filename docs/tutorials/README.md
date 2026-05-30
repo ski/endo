@@ -100,8 +100,14 @@ If you are working inside this repository instead, see
     the board, pick a listing, and buy atomically through Zoe. No discovery gap,
     no central operator, no trust required. Closes tutorial-7 gap 3.
 
-Further tutorials will cover the Agoric wallet petname system and a Lit +
-Web Components PWA mobile wallet.
+11. **[The Wallet: Petnames on the Blockchain](11-wallet.md)**
+    The Agoric wallet is tutorial 1's three-layer model applied to a blockchain.
+    Bob buys a CarAccess token from the marketplace, approves the offer through
+    the wallet UI, and the wallet displays it under his chosen petname. The
+    dapp-wallet bridge is attenuation and per-grantee wrappers at the financial
+    layer.
+
+Further tutorials will cover the Lit + Web Components PWA mobile wallet.
 
 ## Conventions
 
