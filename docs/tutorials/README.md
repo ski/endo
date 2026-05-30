@@ -107,7 +107,12 @@ If you are working inside this repository instead, see
     dapp-wallet bridge is attenuation and per-grantee wrappers at the financial
     layer.
 
-Further tutorials will cover the Lit + Web Components PWA mobile wallet.
+12. **[The Mobile Wallet: Lit, Web Components, and Offline Capabilities](12-lit-pwa.md)**
+    The capstone. A Lit + Vite PWA installable on iOS and Android. `lockdown()`
+    fires before any component code. Each `<car-fob>` element holds its CapTP
+    reference in a private field — the closure from tutorial 3, running in a
+    browser. IndexedDB stores the offline CRDT replica. Tailscale is the
+    transport. Tutorial 1's three-layer model, twelve tutorials later.
 
 ## Conventions
 
